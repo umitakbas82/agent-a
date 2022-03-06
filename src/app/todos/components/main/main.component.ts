@@ -16,7 +16,12 @@ export class MainComponent {
             this.todosService.filter$,
         ).pipe(map(([todos, filter]: [TodoInterface[], FilterEnum]) => {
             console.log('combine', todos, filter);
-            return [];
+            if  (filter===FilterEnum.active){
+                return todos.filter(todo => !todo.isCompleted)
+             }else if (filter===FilterEnum.completed){
+                 return todos.filter(todo => todo.isCompleted)
+             }
+            return todos;
         }
         ));
     }
