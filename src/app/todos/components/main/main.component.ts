@@ -34,4 +34,9 @@ export class MainComponent {
         }
         ));
     }
+
+   toggleAllTodos(event : Event): void {
+       const target = event.target as HTMLInputElement
+       this.todosService.toggleAll(target.checked)
+   }
 }

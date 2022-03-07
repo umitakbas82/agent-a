@@ -2,6 +2,7 @@
     <input id="toggle-all" 
     class="togle-all" 
     type="checkbox" 
+    (change)="toggleAllTodos($event)"
     [checked]="isAllTodosSelected$.|async"/>
     
     <label for="togle-all">Merk all as completed</label>
