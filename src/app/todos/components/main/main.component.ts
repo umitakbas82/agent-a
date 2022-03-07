@@ -12,8 +12,11 @@ import { combineLatestInit } from 'rxjs/internal/observable/combineLatest';
 export class MainComponent {
     visibleTodos$: Observable<TodoInterface[]>;
     noTodoClass$: Observable<boolean>
+    isAllTodosSelected$:Observable<boolean>
 
     constructor(private todosService: TodosService) {
+        this.isAllTodosSelected$ = this.todosService.todos$.pipe(
+            map((todos) => todos.every((todo) => todo.isCompleted)));
         this.noTodoClass$ = this.todosService.todos$.pipe(
             map((todos) => todos.length === 0));
 
