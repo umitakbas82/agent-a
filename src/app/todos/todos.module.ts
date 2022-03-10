@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core/core';
 import { CommonModule } from '@angular/common';
 
 import { TodosComponent } from 'src/app/todos/components/todos/todos.component';
